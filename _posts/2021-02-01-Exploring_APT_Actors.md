@@ -21,6 +21,8 @@ I took data from the Mitra list of APT Groups and dropped that into excel. With 
 
 > Top Countries Associated with Malicous activity; China, Iran, Russia and North Korea.  
 
+I really like how malpedia has curated an extensive list of references for each APT threat actor in their list. It makes it easy to research and learn about a particular actor. For example if you wanted to dig into [APT33, malpedia lists nearly 50 references](https://malpedia.caad.fkie.fraunhofer.de/actor/apt33) where you can go read more about APT33 techniques and find samples to explore on your own.
+
 ## References
 * Link to the [Excel file](/files/APT_Stats.xlsx) I created from the Mitre data. 
 * Link to [Mitre APT Group page](https://attack.mitre.org/groups) - 123 Actors tracked, as of Feb-2, 2021
