@@ -15,7 +15,7 @@ The term [APT or Advanced Persistance Threat](https://en.wikipedia.org/wiki/Adva
 
 ## Who are APT Actors
 
-I took data from the Mitra list of APT Groups and dropped that into excel. With a little clean up of the data I had 123 groups list. I then added a new colum for most likely country of origin and populated the column from reading the threat Actor description. I validated my thinking by also checking the Malpedia list of actors, and Fireeye's list of APT actors. When I was all said and done, I did a simple GroupBy Country to see the top countries associated with APT Threat actors. There is a large number of groups where the Country of origin is unknown. When I was looking over the unknown groups they largely seemed to be organized crime groups, verses a nation state.
+I took data from the Mitre Groups list of APT Groups and dropped that into excel. With a little clean up of the data I had 123 groups list. I then added a new colum for most likely country of origin and populated the column from reading the threat Actor description. I validated my thinking by also checking the Malpedia list of actors, and Fireeye's list of APT actors. When I was all said and done, I did a simple GroupBy Country to see the top countries associated with APT Threat actors. There is a large number of groups where the Country of origin is unknown. When I was looking over the unknown groups they largely seemed to be organized crime groups, verses a nation state.
 
 ![APT Actors](/images/apt_image.PNG)
 
