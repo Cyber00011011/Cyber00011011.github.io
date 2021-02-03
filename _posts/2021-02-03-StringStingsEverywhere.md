@@ -22,10 +22,10 @@ To start out my analysis I surveyed several tools for dumping string information
 | Tool | Type | Pro/Cons |
 |---|---|---|
 | strings.py | Python | Lots of great command line options, needs python but that is easy to install. Updated frequently with new features. |
-| Strings2.exe | Executable | I could not get this tool to run with a long input filename path. When I copied the sample into the same folder at strings2.exe it worked. Standalone tool which is nice but not updated since 2017 it looks like. |
-| BinText.exe | Executable | GUI tool that is easy to use, but strangely listed strings twice for some reason. Also looks like it has not been updated in a long time.  |
+| Strings2.exe | Executable | I could not get this tool to run with a long input filename path. When I copied the sample into the same folder as strings2.exe it worked. Standalone tool which is nice but not updated since 2017 it looks like. |
+| BinText.exe | Executable | GUI tool that is easy to use, but strangely listed strings twice for some reason, more details on this below. Also looks like it has not been updated in a long time.  |
 | IdaPro | Executable | GUI tool or IDAPython. Really over kill just for looking at strings but will do the job. |
-| PEStudio | Executable | GUI tool with nice tips that help indicate why certain strings might indicate malicious behavior. Looks to be well supported and updated. Has a PRO version as well. |
+| PEStudio | Executable | GUI tool with nice tips that help indicate why certain strings might indicate malicious behavior. Looks to be well supported and updated. Has a Pro version as well. |
 | Hybrid-Analysis | Website | Easy to use web site but requires sample to be uploaded to the site. Will give you way more then just strings and may be overkill if only looking for a dump of strings  |
 | FLOSS | Python | Looks like it would be good based on this [blog](https://www.fireeye.com/blog/threat-research/2016/06/automatically-extracting-obfuscated-strings.html), but I could not get it to work. Setup on Windows 10 x64 failed with an error of no Module named utils. |
 
@@ -49,7 +49,7 @@ PE Studio showing some hints about the context of a string.
 Hybrid-Analysis showing a lot more strings than the static tools.
 ![hybrid_analysis](/images/hybrid_analysis.PNG)
 
-In closing, all the tools found string calls to 'hello' and 'sleep' which look like they could be commands. There is also a call to CreateProcessA and an IP address which could be a C&C server.
+In closing, all the tools found the strings 'hello' and 'sleep' which look like they could be commands. There is also a call to CreateProcessA and an IP address which could be a C&C server.
 
 ## References
 * Link to [strings.py by Didier Stevens](https://blog.didierstevens.com/2021/01/24/update-strings-py-version-0-0-7/) 
