@@ -2,6 +2,7 @@
 layout: post
 title: Exploring APT Actors
 categories: [Malware, APT]
+excerpt: The term APT is used to refer mainly to Nation States but more recently can also include well funded organized crime groups conducting large scale intrusions. In this blog post we are going to look at the list of APT Groups published by Mitre. (Estimated Reading Time, 6 minutes)
 ---
 (Estimated Reading Time: 6 minutes)
 

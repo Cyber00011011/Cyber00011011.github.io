@@ -2,6 +2,7 @@
 layout: post
 title: Strings Strings Everywhere
 categories: [Malware, Strings, Tools]
+excerpt: Although it is not common for malware samples to contain clear text strings, it does happen, and it is an easy place to start analysis. Strings can be embedded in malware samples and provide indications to what the malware will do when executed. (Estimated Reading Time, 11 minutes)
 ---
 (Estimated Reading Time: 11 minutes)
 
