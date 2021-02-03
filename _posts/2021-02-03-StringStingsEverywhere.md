@@ -27,17 +27,18 @@ To start out my analysis I surveyed several tools for dumping string information
 | IdaPro | Executable | GUI tool or IDAPython. Really over kill just for looking at strings but will do the job. |
 | PEStudio | Executable | GUI tool with nice tips that help indicate why certain strings might indicate malicious behavior. Looks to be well supported and updated. Has a PRO version as well. |
 | Hybrid-Analysis | Website | Easy to use web site but requires sample to be uploaded to the site. Will give you way more then just strings and may be overkill if only looking for a dump of strings  |
-| FLOSS | Python | Looks like it would be good based on this [blog](https://www.fireeye.com/blog/threat-research/2016/06/automatically-extracting-obfuscated-strings.html), but I could not get it to work. Setup on Windows 10 x64 failed with an error of no Module named utils.  |
+| FLOSS | Python | Looks like it would be good based on this [blog](https://www.fireeye.com/blog/threat-research/2016/06/automatically-extracting-obfuscated-strings.html), but I could not get it to work. Setup on Windows 10 x64 failed with an error of no Module named utils. |
 
 Using the above tools with their default options against Lab01-01.dll found the following number of strings.
-| Tool | # of Strings | Notes |
+
+| Tool | Strings Found | Notes |
 |---|---|---|
 | strings.py | 37 | Was fast and easy to use
-| strings2.exe | 37 | Was a bit tricker to run, but got the same result as strings.py
-| BinText.exe | 60 | This was a strange case. I realized it was listing strings twice (doubling) so it really found 30 strings. See screen shot below showing the doubling. 
-| IdaPro | 8 | The free version of Ida listed 8 strings. 
-| PEStudio | 36 | Easy to use GUI with nice hints column that tries to tell you a little context about the string, like URL or file. See image below
-| HybridAnalysis | 126 | This site found [126 strings in this sample](https://www.hybrid-analysis.com/sample/f50e42c8dfaab649bde0398867e930b86c2a599e8db83b8260393082268f2dba/5b1b09697ca3e1066c2f22e4). I think it used both static and dynamic analysis so it found additional strings at run time. 
+| strings2.exe | 37 | Was a bit tricker to run, but got the same result as strings.py |
+| BinText.exe | 60 | This was a strange case. I realized it was listing strings twice (doubling) so it really found 30 strings. See screen shot below showing the doubling. |
+| IdaPro | 8 | The free version of Ida listed 8 strings. |
+| PEStudio | 36 | Easy to use GUI with nice hints column that tries to tell you a little context about the string, like URL or file. See image below |
+| HybridAnalysis | 126 | This site found [126 strings in this sample](https://www.hybrid-analysis.com/sample/f50e42c8dfaab649bde0398867e930b86c2a599e8db83b8260393082268f2dba/5b1b09697ca3e1066c2f22e4). I think it used both static and dynamic analysis so it found additional strings at run time. |
 
 BinText is shown here and finds strings twice for some reason. 
 ![BinText](/images/bintext.PNG)
