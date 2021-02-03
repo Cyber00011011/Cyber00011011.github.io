@@ -24,6 +24,7 @@ To start out my analysis I surveyed several tools for dumping string information
 | strings.py | Python | Lots of great command line options, needs python but that is easy to install. Updated frequently with new features. |
 | Strings2.exe | Executable | I could not get this tool to run with a long input filename path. When I copied the sample into the same folder as strings2.exe it worked. Standalone tool which is nice but not updated since 2017 it looks like. |
 | BinText.exe | Executable | GUI tool that is easy to use, but strangely listed strings twice for some reason, more details on this below. Also looks like it has not been updated in a long time.  |
+| strings.exe | Executable | Well supported sysinternals tool. Easy to use.  |
 | IdaPro | Executable | GUI tool or IDAPython. Really over kill just for looking at strings but will do the job. |
 | PEStudio | Executable | GUI tool with nice tips that help indicate why certain strings might indicate malicious behavior. Looks to be well supported and updated. Has a Pro version as well. |
 | Hybrid-Analysis | Website | Easy to use web site but requires sample to be uploaded to the site. Will give you way more then just strings and may be overkill if only looking for a dump of strings  |
@@ -36,6 +37,7 @@ Using the above tools with their default options against Lab01-01.dll found the 
 | strings.py | 37 | Was fast and easy to use
 | strings2.exe | 37 | Was a bit tricker to run, but got the same result as strings.py |
 | BinText.exe | 60 | This was a strange case. I realized it was listing strings twice (doubling) so it really found 30 strings. See screen shot below showing the doubling. |
+| strings.exe | 54 | Had a few additional strings over the prior tools but most the extra strings looked like garbage strings. |
 | IdaPro | 8 | The free version of Ida listed 8 strings. |
 | PEStudio | 36 | Easy to use GUI with nice hints column that tries to tell you a little context about the string, like URL or file. See image below |
 | HybridAnalysis | 126 | This site found [126 strings in this sample](https://www.hybrid-analysis.com/sample/f50e42c8dfaab649bde0398867e930b86c2a599e8db83b8260393082268f2dba/5b1b09697ca3e1066c2f22e4). I think it used both static and dynamic analysis so it found additional strings at run time. |
@@ -55,6 +57,7 @@ In closing, all the tools found the strings 'hello' and 'sleep' which look like 
 * Link to [strings.py by Didier Stevens](https://blog.didierstevens.com/2021/01/24/update-strings-py-version-0-0-7/) 
 * Link to [Strings2.exe by Geoff McDonald](http://split-code.com/strings2.html) 
 * Link to [BinText by McAfee, I think](http://b2b-download.mcafee.com/products/tools/foundstone/bintext303.zip) 
+* Link to [strings.exe by Sysinternals](https://docs.microsoft.com/en-us/sysinternals/downloads/strings) 
 * Link to [PEStudio by Winitor](https://www.winitor.com/) 
 * Link to [Hybrid-Analysis](https://www.hybrid-analysis.com/) 
 * Link to [FLOSS by Fireeye](https://github.com/fireeye/flare-floss) - Note: I could not get this tool to work on my Windows 10 x64 VM. If anyone got it working please let me know how at [@c00011011](https://twitter.com/C00011011)
