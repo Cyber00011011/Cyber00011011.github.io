@@ -49,7 +49,7 @@ PE Studio showing some hints about the context of a string.
 Hybrid-Analysis showing a lot more strings than the static tools.
 ![hybrid_analysis](/images/hybrid_analysis.PNG)
 
-In closing, all the tools found the strings 'hello' and 'sleep' which look like they could be commands. There is also a call to CreateProcessA and an IP address which could be a C&C server.
+In closing, all the tools found the strings 'hello' and 'sleep' which look like they could be commands. There is also a call to CreateProcessA and an IP address which could be a C&C server. If your looking for a good command line tool my favorite was strings.py by Didier Stevens, for a GUI tool I liked PEStudio. 
 
 ## References
 * Link to [strings.py by Didier Stevens](https://blog.didierstevens.com/2021/01/24/update-strings-py-version-0-0-7/) 
