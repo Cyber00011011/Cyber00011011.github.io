@@ -95,7 +95,7 @@ Lastly, just a note of caution, Even though the above code is totally benign and
 
 ![AVProtection](/images/macro_example_triggers_av.PNG)
 
-**Update:** As I was researching this topic further I stubbled upon two more methods to Download files using Macros over at f-secures blog. The two additional methods are fairly interesting. You can use Internet Explorer via COM to download a file. This will spawn a browser from svchost (not Office) to download a file.
+**Update:** As I was researching this topic further I stumbled upon two more methods to Download files using Macros over at f-secures blog. The two additional methods are fairly interesting. You can use Internet Explorer via COM to download a file. This will spawn a browser from svchost (not Office) to download a file.
 
 ```
 Set ie = CreateObject("InternetExplorer.Application")
