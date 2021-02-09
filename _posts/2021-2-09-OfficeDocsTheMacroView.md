@@ -8,7 +8,7 @@ excerpt: Attackers often use Office Macros as a means to infect computers and do
 
 - [Why Attackers Use Office Macros](#why-attackers-use-office-macros)
 - [Approaches To Downloading More Malicious Code](#approaches-to-downloading-more-malicious-code)
-
+- [Resources](#resources)
 
 ## Why Attackers Use Office Macros
 
@@ -94,3 +94,7 @@ I mentioned a forth method, which could be using Excel 4.0 (XL4) macros. This is
 Lastly, just a note of caution, Even though the above code is totally benign and not malicious my AV software decide to protect me from my own non-malicious example code.  When I saved the above samples into an Example.xlsm file Windows Defender saved me from myself. 
 
 ![AVProtection](/images/macro_example_triggers_av.PNG)
+
+
+## Resources
+[Stackoverflow Discussion on Downloading File with VBA](https://stackoverflow.com/questions/17877389/how-do-i-download-a-file-using-vba-without-internet-explorer)
