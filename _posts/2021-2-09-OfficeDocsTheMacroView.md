@@ -12,7 +12,7 @@ excerpt: Attackers often use Office Macros as a means to infect computers and do
 
 ## Why Attackers Use Office Macros
 
-We all know Office Macro’s can be dangerous and can be used by attackers to download additional malware. In this blog post, I wanted to explorer the basic ways that Macro’s can be used to download additional code by looking at some basic example code.  
+We all know Office Macro’s can be dangerous and can be used by attackers to download additional malware. In this blog post, I wanted to explorer the basic ways that Macro’s can be used to download additional code by looking at some basic example code. These types of documents are often referred to as MalDocs or Malicious Documents which I discussed during a prior post on [types of malware](https://cyber00011011.github.io/TypesOfMalware/#types-of-malware).  
 
 Macros have become very popular in malware because they are easy to create and can be crafted into phishing messages to convince the user to run the macro. Despite security warning; the user will almost always click, “Enable Content” 
 
