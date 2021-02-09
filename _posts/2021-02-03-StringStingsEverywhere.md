@@ -29,7 +29,7 @@ To start out my analysis I surveyed several tools for dumping string information
 | IdaPro | Executable | GUI tool or IDAPython. Really over kill just for looking at strings but will do the job. |
 | PEStudio | Executable | GUI tool with nice tips that help indicate why certain strings might indicate malicious behavior. Looks to be well supported and updated. Has a Pro version as well. |
 | Hybrid-Analysis | Website | Easy to use web site but requires sample to be uploaded to the site. Will give you way more then just strings and may be overkill if only looking for a dump of strings  |
-| FLOSS | Python | Looks like it would be good based on this [blog](https://www.fireeye.com/blog/threat-research/2016/06/automatically-extracting-obfuscated-strings.html), but I could not get it to work. Setup on Windows 10 x64 failed with an error of no Module named utils. |
+| FLOSS | Python | Looks like it would be good based on this [blog](https://www.fireeye.com/blog/threat-research/2016/06/automatically-extracting-obfuscated-strings.html). It will try to statically decode strings and extract stack strings. I was able to run the 1.7 version by downloading the [repository](https://github.com/fireeye/flare-floss/releases) and running the standalone floss.exe binary. |
 
 Using the above tools with their default options against Lab01-01.dll found the following number of strings.
 
@@ -42,6 +42,7 @@ Using the above tools with their default options against Lab01-01.dll found the 
 | IdaPro | 8 | The free version of Ida listed 8 strings. |
 | PEStudio | 36 | Easy to use GUI with nice hints column that tries to tell you a little context about the string, like URL or file. See image below |
 | HybridAnalysis | 126 | This site found [126 strings in this sample](https://www.hybrid-analysis.com/sample/f50e42c8dfaab649bde0398867e930b86c2a599e8db83b8260393082268f2dba/5b1b09697ca3e1066c2f22e4). I think it used both static and dynamic analysis so it found additional strings at run time. |
+| FLOSS.exe | 37 | Easy to run standalone version with no dependencies needed. It will additionally try to decode strings and find stack strings. |
 
 BinText is shown here and finds strings twice for some reason. 
 ![BinText](/images/bintext.PNG)
@@ -61,4 +62,6 @@ In closing, all the tools found the strings 'hello' and 'sleep' which look like 
 * Link to [strings.exe by Sysinternals](https://docs.microsoft.com/en-us/sysinternals/downloads/strings) 
 * Link to [PEStudio by Winitor](https://www.winitor.com/) 
 * Link to [Hybrid-Analysis](https://www.hybrid-analysis.com/) 
-* Link to [FLOSS by Fireeye](https://github.com/fireeye/flare-floss) - Note: I could not get this tool to work on my Windows 10 x64 VM. If anyone got it working please let me know how at [@c00011011](https://twitter.com/C00011011)
+* Link to [FLOSS by Fireeye](https://github.com/fireeye/flare-floss)
+
+Follow me at [@c00011011](https://twitter.com/C00011011)
