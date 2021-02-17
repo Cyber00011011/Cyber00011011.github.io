@@ -15,6 +15,7 @@ This blog is powered by GitHub Pages and the site template from [Reverie](https:
 
 ## Blog Posts
 
+* 2021-02-17 [Understand Shellcode with CyberChef](https://cyber00011011.github.io/CookingUpCyber/)
 * 2021-02-11 [Where's Waldo's Malware](https://cyber00011011.github.io/WheresWaldosMalware/)
 * 2021-02-09 [Office Docs, The Macro View](https://cyber00011011.github.io/OfficeDocsTheMacroView/)
 * 2021-02-05 [Build A Safe Malware Lab](https://cyber00011011.github.io/BuildASafeMalwareLab/)
