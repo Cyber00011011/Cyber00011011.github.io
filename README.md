@@ -15,6 +15,8 @@ This blog is powered by GitHub Pages and the site template from [Reverie](https:
 
 ## Blog Posts
 
+
+* 2021-03-01 [Word DDE Malware](https://cyber00011011.github.io/WordDDE/)
 * 2021-02-23 [A Malware Firehose](https://cyber00011011.github.io/AMalwareFirehose/)
 * 2021-02-17 [Understand Shellcode with CyberChef](https://cyber00011011.github.io/CookingUpCyber/)
 * 2021-02-11 [Where's Waldo's Malware](https://cyber00011011.github.io/WheresWaldosMalware/)
