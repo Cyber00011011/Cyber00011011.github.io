@@ -8,7 +8,7 @@ excerpt: A walk through of how to leverage the Windows OS AMSI Tracing feature t
 (Estimated Reading Time: 5 minutes)
 
 - [Inspiration](#inspiration)
-- [A Couple Samples](#a-couple-samples)
+- [A Sample](#a-sample)
 - [References](#references)
 
 ## Inspiration
