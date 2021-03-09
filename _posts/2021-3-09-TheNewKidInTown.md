@@ -64,7 +64,7 @@ The table below is not an exhaustive list of samples but shows babuk over time a
 
 The upx sample can be easily unpacked with the [upx packer](https://upx.github.io/) using the commend 'upx -d filename'. After unpacking the file is 1,077Kb and contains over 1200 strings, where the original only had 270 strings. In this unpacked sample idapro finds 846 functions where the original had 76. There seems to be more changes in this sample then just packing. The sample matches the Microsoft Visual C++ 9.0 compiler from Visual Studio 2008. 
 
-From the McAfee report it seems like a version of Babuk may be available for *nix as well. Has anyone seen a sample from a *nix machine?
+The McAfee report indicates a version of Babuk may be available for *nix as well. Has anyone seen a sample from a *nix machine? If so let me know in a comment below. 
 
 ## References
 
