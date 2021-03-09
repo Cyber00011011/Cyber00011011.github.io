@@ -64,12 +64,15 @@ The table below is not an exhaustive list of samples but shows babuk over time a
 
 The upx sample can be easily unpacked with the [upx packer](https://upx.github.io/) using the commend 'upx -d filename'. After unpacking the file is 1,077Kb and contains over 1200 strings, where the original only had 270 strings. In this unpacked sample idapro finds 846 functions where the original had 76. There seems to be more changes in this sample then just packing. The sample matches the Microsoft Visual C++ 9.0 compiler from Visual Studio 2008, which is also different then the original variant. Time for some reversing and maybe some dynamic debugging to see what else if different. 
 
+[MalwareBazaar also has 12 samples](https://bazaar.abuse.ch/browse/tag/Babuk/) matching Babuk. Many overlap with the hashes above. A newer sample looks to be from Mar-3.
+
 The McAfee report indicates a version of Babuk may be available for *nix as well. Has anyone seen a sample from a *nix machine? If so let me know in a comment below. 
 
 ## References
 
 * Link to [McAfee Technical Analysis of Babuk](https://www.mcafee.com/enterprise/en-us/assets/reports/rp-babuk-ransomware.pdf)
 * Link to [NHS Babuk Guidance and IOC's](https://digital.nhs.uk/cyber-alerts/2021/cc-3715)
+* Link to ReversingLabs YARA Rule [Win32.Ransomware.Babuk.yara](https://github.com/reversinglabs/reversinglabs-yara-rules/blob/develop/yara/ransomware/Win32.Ransomware.Babuk.yara)
 * Link to [Babuk Sample on Tria.ge](https://tria.ge/210103-gpzkfkh3ej)
 * Link to [Babuk Sample on VT](https://www.virustotal.com/gui/file/8203c2f00ecd3ae960cb3247a7d7bfb35e55c38939607c85dbdb5c92f0495fa9/details)
 * Link to [Malwarebytes Types of Ransomware](https://www.malwarebytes.com/ransomware/#typesofransomware)
