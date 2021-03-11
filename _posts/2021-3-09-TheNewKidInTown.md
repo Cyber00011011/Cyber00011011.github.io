@@ -49,22 +49,21 @@ The table below is not an exhaustive list of samples but shows babuk over time a
 | Hash  | First Seen in Tria.ge  |  Size |
 |---|---|---|
 | [8203c2f00ecd3ae960cb3247a7d7bfb35e55c38939607c85dbdb5c92f0495fa9](https://tria.ge/210103-gpzkfkh3ej)  | 3-Jan-2021  |  30k | 
-| [30fcff7add11ea6685a233c8ce1fc30abe67044630524a6eb363573a4a9f88b8](https://tria.ge/210108-8k176xp1zj)  | 8-Jan-2021  |  31k | 
 | [30fcff7add11ea6685a233c8ce1fc30abe67044630524a6eb363573a4a9f88b8](https://tria.ge/210108-8k176xp1zj)  | 8-Jan-2021  |  31k |
 | [550771bbf8a3e5625d6ec76d70ed86f6e443f07ce80ff73e47f8249ddd72a8cf](https://tria.ge/210118-4myp12qpga)  | 18-Jan-2021  |  22k |
 | [8140004ff3cf4923c928708505754497e48d26d822a95d63bd2ed54e14f19766](https://tria.ge/210118-4ydpsw46y2)  | 18-Jan-2021  |  196k |
 | [1b9412ca5e9deb29aeaa37be05ae8d0a8a636c12fdff8c17032aa017f6075c02](https://tria.ge/210119-vy4d74cvsn)  | 19-Jan-2021  |  31k |
-| [1b9412ca5e9deb29aeaa37be05ae8d0a8a636c12fdff8c17032aa017f6075c02](https://tria.ge/210301-rs4nv3rttx)  | 19-Jan-2021  |  31k | 
 | [550771bbf8a3e5625d6ec76d70ed86f6e443f07ce80ff73e47f8249ddd72a8cf](https://tria.ge/210118-4myp12qpga)  | 22-Jan-2021  |  18k |
 | [afcf265a1dcd9eab5aab270d48aa561e4ddeb71c05e32c857d3b809bb64c0430](https://tria.ge/210122-dcvdsabdme)  | 22-Jan-2021  |  38k |
-| [3dda3ee9164d6815a18a2c23651a53c35d52e3a5ad375001ec824cf532c202e6](https://tria.ge/210125-bk7nj8slxx)  | 25-Jan-2021  |  30k |
 | [3dda3ee9164d6815a18a2c23651a53c35d52e3a5ad375001ec824cf532c202e6](https://tria.ge/210125-bk7nj8slxx)  | 25-Jan-2021  |  30k |
 | [58ccba4fb2b3ed8b5f92adddd6ee331a6afdedfc755145e0432a7cb324c28053](https://tria.ge/210128-b3gdrfb24s)  | 28-Jan-2021  |  29k |
 | [391cfcd153881743556f76de7bbca5b19857f8b69a6f6f6dfde6fd9b06c17f5e](https://tria.ge/210222-mfkm1zpavj)  | 22-Feb-2021  |  75k |
 
-The upx sample can be easily unpacked with the [upx packer](https://upx.github.io/) using the commend 'upx -d filename'. After unpacking the file is 1,077Kb and contains over 1200 strings, where the original only had 270 strings. In this unpacked sample idapro finds 846 functions where the original had 76. There seems to be more changes in this sample then just packing. The sample matches the Microsoft Visual C++ 9.0 compiler from Visual Studio 2008, which is also different then the original variant. Time for some reversing and maybe some dynamic debugging to see what else if different. 
+[All Babuk samples on Tria.ge](https://tria.ge/s?q=family%3Ababuk)
 
-[MalwareBazaar also has 12 samples](https://bazaar.abuse.ch/browse/tag/Babuk/) matching Babuk. Many overlap with the hashes above. A newer sample looks to be from Mar-3.
+[MalwareBazaar also has samples](https://bazaar.abuse.ch/browse/tag/Babuk/) matching the Babuk family.
+
+The upx sample can be easily unpacked with the [upx packer](https://upx.github.io/) using the commend 'upx -d filename'. After unpacking the file is 1,077Kb and contains over 1200 strings, where the original only had 270 strings. In this unpacked sample idapro finds 846 functions where the original had 76. There seems to be more changes in this sample then just packing. The sample matches the Microsoft Visual C++ 9.0 compiler from Visual Studio 2008, which is also different then the original variant. Time for some reversing and maybe some dynamic debugging to see what else if different. 
 
 The McAfee report indicates a version of Babuk may be available for *nix as well. Has anyone seen a sample from a *nix machine? If so let me know in a comment below. 
 
