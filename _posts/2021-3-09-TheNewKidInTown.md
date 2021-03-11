@@ -70,7 +70,33 @@ The upx sample can be easily unpacked with the [upx packer](https://upx.github.i
 I've created a high level pseudo execution flow of Babuk just to show at a very high level the simple flow of execution. I've omitted much of the Thread safety flow, and the specific encryption routines. At a glance this is what I think Babuk is doing after reviewing the Ghidra disassembly. 
 
 ```
-test
+if (not mutex)   //has Babuk already  run on this box
+    call GetCommandLineA   //get nolan or lanfirst command line args
+    call SetProcessShutDownParameters(0,0)
+    call OpenSCMangerA //get a list of services
+        foreach service  
+            iterate services and terminate hard coded services
+    call Process32FirstW
+        foreach (process)
+            iterate running processes and terminate hard coded processes
+    SHEmptyRecycleBinA   //clear recycling bin
+    foreach (share)
+        iterate over shares/files
+    call GetSystemInfo //to get number of processors 
+    call CreateThread 
+    if (lanfirst command line)
+        call WNetOpenEnumW   //enumerate network resources
+        iterate over shares and files
+        encrypt files
+        CreateFileW //create ransomware note
+    call GetLogicalDrives  //get local drives (ex C:)
+    if (logicaldrives)
+        iterate over files
+        encrypt files
+        CreateFileW //create ransomware note
+    call ShellExecuteW to run vssadmin.exe delete shadows /all /quiet
+else
+  exit
 ```
 
 The McAfee report indicates a version of Babuk may be available for *nix as well. Has anyone seen a sample from a *nix machine? If so let me know in a comment below. 
