@@ -30,7 +30,9 @@ Now that we know a bit of the history of ransomware let's take a quick peak at t
 First seen in the wild on [VirusTotal on 4-Jan-2021](https://www.virustotal.com/gui/file/8203c2f00ecd3ae960cb3247a7d7bfb35e55c38939607c85dbdb5c92f0495fa9/details), the Babuk ransomware family is following similar tactics as Ryuk and Sodinokibi. McAfee has already completed a detailed analysis of one Babuk sample and authored a detailed [Technical Analysis of 
 Babuk Ransomware](https://www.mcafee.com/enterprise/en-us/assets/reports/rp-babuk-ransomware.pdf) which is a good read. The file analyzed by McAfee has a SHA256 hash:
 
-```8203c2f00ecd3ae960cb3247a7d7bfb35e55c38939607c85dbdb5c92f0495fa9```
+```
+8203c2f00ecd3ae960cb3247a7d7bfb35e55c38939607c85dbdb5c92f0495fa9
+```
 
 I decided to look a bit more into this sample. Even though it has been analyzed by McAfee and others this sample is nice because the original variant is not packed and can be easily downloaded from [Tria.ge](https://tria.ge/210103-gpzkfkh3ej) or [VirusShare](https://virusshare.com/).
 
@@ -66,6 +68,10 @@ The table below is not an exhaustive list of samples but shows babuk over time a
 The upx sample can be easily unpacked with the [upx packer](https://upx.github.io/) using the commend 'upx -d filename'. After unpacking the file is 1,077Kb and contains over 1200 strings, where the original only had 270 strings. In this unpacked sample idapro finds 846 functions where the original had 76. There seems to be more changes in this sample then just packing. The sample matches the Microsoft Visual C++ 9.0 compiler from Visual Studio 2008, which is also different then the original variant. 
 
 I've created a high level pseudo execution flow of Babuk just to show at a very high level the simple flow of execution. I've omitted much of the Thread safety flow, and the specific encryption routines. At a glance this is what I think Babuk is doing after reviewing the Ghidra disassembly. 
+
+```
+test
+```
 
 The McAfee report indicates a version of Babuk may be available for *nix as well. Has anyone seen a sample from a *nix machine? If so let me know in a comment below. 
 
