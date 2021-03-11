@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New Kid on The Block, Babuk
+title: New Kid on The Block
 categories: [Malware, Ransomware, Babuk]
 excerpt: A brief history and overview of ransomware leading up to the newest addition to the ransomware family in early 2021, known as Babuk.  
 ---
@@ -66,36 +66,6 @@ The table below is not an exhaustive list of samples but shows babuk over time a
 The upx sample can be easily unpacked with the [upx packer](https://upx.github.io/) using the commend 'upx -d filename'. After unpacking the file is 1,077Kb and contains over 1200 strings, where the original only had 270 strings. In this unpacked sample idapro finds 846 functions where the original had 76. There seems to be more changes in this sample then just packing. The sample matches the Microsoft Visual C++ 9.0 compiler from Visual Studio 2008, which is also different then the original variant. 
 
 I've created a high level pseudo execution flow of Babuk just to show at a very high level the simple flow of execution. I've omitted much of the Thread safety flow, and the specific encryption routines. At a glance this is what I think Babuk is doing after reviewing the Ghidra disassembly. 
-
-```
-if (not mutex)   //determine if Babuk has already  run on this box  
-    call GetCommandLineA   //look for 'nolan' or 'lanfirst' command line args  
-    call SetProcessShutDownParameters(0,0)  
-    call OpenSCMangerA //get a list of services  
-        foreach service  
-            iterate services and terminate   specific hard coded services
-    call Process32FirstW
-        foreach (process)
-            iterate running processes and terminate specific hard coded processes
-    SHEmptyRecycleBinA   //clear recycling bin
-    foreach (share)
-        iterate over shares/files
-    call GetSystemInfo //to get number of processors 
-    call CreateThread 
-    if (lanfirst command line)
-        call WNetOpenEnumW   //enumerate network resources
-        iterate over shares and files
-        encrypt files
-        CreateFileW //create ransomware note
-    call GetLogicalDrives  //get local drives (ex C:)
-    if (logicaldrives)
-        iterate over files
-        encrypt files
-        CreateFileW //create ransomware note
-    call ShellExecuteW to run vssadmin.exe delete shadows /all /quiet
-else
-  exit
-```
 
 The McAfee report indicates a version of Babuk may be available for *nix as well. Has anyone seen a sample from a *nix machine? If so let me know in a comment below. 
 
