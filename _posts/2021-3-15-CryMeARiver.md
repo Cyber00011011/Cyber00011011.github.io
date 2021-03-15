@@ -54,7 +54,6 @@ If the service gets created you will be able to easily spot this in the Windows 
 | Event | Event ID |  Level | Event Log |
 |---|---|---|---|
 | New Windows Service | 7045 | Information | System |
-||||
 
 If the service is created, and a service handler is registered the main service function is called and we start out at function (00401D10) which starts out by getting the WINDIR environment variable, and calling sprintf to build the ransom note for readme.txt. It then loads the RSA key and calls GetLocalDrives to enumerate local drives (like C:\, D:\, etc). Some other functions are then called that check the file extension against the list above. You can see a call graph below from what I called 00401D10_Cry_Main (0x00401D10).
 
