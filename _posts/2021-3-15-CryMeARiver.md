@@ -43,17 +43,19 @@ The strings for WINDIR, APPDATA and PROGRAMFILES are likely used to exclude thos
 
 From other post's I've read folks are calling DearCry a "copy" ransomware because it creates encrypted copies of the attacked files. It encrypts the copied files and then deletes the original version of the file. In some cases it may be possible to recover some of the deleted files with forensics tools, however it is also very likely that much of that data will be overwritten or just unrecoverable.
 
-The very first things this ransomware does is setup a service called msupdate by passing the service name and a pointer to the services main function to the call StartServiceCrtlDispatcherA
+The very first things this ransomware does is *try* to setup a service called msupdate by passing the service name and a pointer to the services main function to the call StartServiceCrtlDispatcherA
 
 ![dearcry](/images/dearcryservice.jpg)
 
-You should be able to easily spot this in the Windows Event Log or tools like Splunk by looking for the new windows service event 7045. In that event you'll see the service name msupdate in this case. That should be a red flag for the Security Operation Centre (SOC) to investigate. 
+If the StartServiceCrtlDispatcherA fails the next function (00401D10) is the same function used inside the NtService so either way the same code runs just depends if it runs in a service or not. 
+
+If the service gets created you will be able to easily spot this in the Windows Event Log or tools like Splunk by looking for the new windows service event 7045. In that event you'll see the service name msupdate in this case. That should be a red flag for the Security Operation Centre (SOC) to investigate. 
 
 | Event | Event ID |  Level | Event Log |
 |---|---|---|---|
 | New Windows Service | 7045 | Information |	System |
 
-After the service is created, and a service handler is registered the main service function is called and we start out at function 00401D10 which starts out by getting the WINDIR environment variable, and calling sprintf to built the ransom note for readme.txt. It then loads the RSA key and calls GetLocalDrives to enumerate local drives (like C:\, D:\, etc). Some other functions are then called that look to check the file extension against the list above. 
+After the service is created, and a service handler is registered the main service function is called and we start out at function (00401D10) which starts out by getting the WINDIR environment variable, and calling sprintf to build the ransom note for readme.txt. It then loads the RSA key and calls GetLocalDrives to enumerate local drives (like C:\, D:\, etc). Some other functions are then called that look to check the file extension against the list above. 
 
 There are 2,509 functions in the sample I'm looking at but I suspect many of those are OpenSSL functions and calls to imported Windows cryptographic functions. 
 
