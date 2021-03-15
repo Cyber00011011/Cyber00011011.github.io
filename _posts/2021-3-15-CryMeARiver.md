@@ -1,6 +1,6 @@
 ---
 layout: post
-title: #DearCry, Cry Me A River
+title: Cry Me A River oh DearCry
 categories: [Malware, Ransomware, DearCry]
 excerpt: Overview of new DearCry ransomware and some artifacts from reverse engineering a couple DearCry samples.  
 ---
