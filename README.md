@@ -15,6 +15,8 @@ This blog is powered by GitHub Pages and the site template from [Reverie](https:
 
 ## Blog Posts
 
+
+* 2021-03-15 [Cry Me A River oh DearCry](https://cyber00011011.github.io/CryMeARiver/)
 * 2021-03-09 [New Kid on The Block](https://cyber00011011.github.io/TheNewKidInTown.md/)
 * 2021-03-05 [The Power of AMSI Tracing](https://cyber00011011.github.io/ThePowerOfLogging.md/)
 * 2021-03-01 [Word DDE Malware](https://cyber00011011.github.io/WordDDE/)
